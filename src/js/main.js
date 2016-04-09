@@ -36,12 +36,17 @@ var Articles = React.createClass({
 });
 
 var Article = React.createClass({
+  handleArticleLink: function(e){
+    console.log("Event", e);
+    console.log("Data", this.props.data);
+    return false;
+  },
   render: function() {
     var data = this.props.data;
     return (
       <article className="article">
         <h2 className="articleTitle">
-            {data.title}
+            <a href="#" onClick={this.handleArticleLink}>{data.title}</a>
         </h2>
         <h3 className="articleByline">
             {data.byline}
