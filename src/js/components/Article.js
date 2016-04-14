@@ -11,7 +11,7 @@ module.exports = React.createClass({
   render: function() {
     var data = this.props.data;
     return (
-      <article className="article">
+      <article className="content-item">
         <h2 className="articleTitle">
             <a href="#" onClick={this.handleClick}>{data.title}</a>
         </h2>

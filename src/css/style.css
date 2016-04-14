@@ -5,10 +5,19 @@ body {
 a {
   color: #00B7FF; }
 
-.article-container{}
+.container{}
 
-.article{
+.content-item{
     margin:30px 0;
     padding:30px;
     border:solid 2px #cecece;
+}
+
+.collapse{
+    height:0;
+    overflow: hidden;
+}
+
+.collapse.in{
+    height:auto;
 }

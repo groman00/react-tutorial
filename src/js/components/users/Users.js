@@ -1,6 +1,6 @@
 var React = require('react');
 var jQuery = $ = require('jquery');
-var Article = require('./Article');
+var User = require('./User');
 
 module.exports = React.createClass({
   // getInitialState: function() {
@@ -12,32 +12,23 @@ module.exports = React.createClass({
       dataType: 'json',
       cache: false,
       success: function(data) {
-        var results = data.results;
-        
-        //Add counts attribute to all articles
-        $.each(results, function(i, item){
-          item.count = 0;
-        });
-        this.props.setArticles(results);
+        this.props.setUsers(data);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
   }, 
-  handleArticleClick: function(data){
-    this.props.addClickCount(data);
-  },
   render: function() {
-    var articleNodes = this.props.data.map(function(article) {
+    var userNodes = this.props.data.map(function(user) {
       return (
-        <Article data={article} key={article.id} onArticleClick={this.handleArticleClick}/>
+        <User data={user} key={user.username} />
       );
     }.bind(this));
     return (
       <section className="container">
-        <h1>All Articles</h1>
-          {articleNodes}
+        <h1>All Users</h1>
+          {userNodes}
       </section>
     );
   }
